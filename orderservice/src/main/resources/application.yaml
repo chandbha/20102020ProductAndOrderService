@@ -1,0 +1,14 @@
+spring:
+  application:
+    name: order-service  h2:    console:      enabled: true
+      path: /console  datasource:    url: jdbc:h2:mem:orderdb    driver-class-name: org.h2.Driver
+    username: ibm
+    password: ibm
+server:  port: 8072
+eureka:
+  instance:
+    instance-id: ${spring.application.name}:${random.int}
+    
+  client:
+    service-url:
+      defaultZone: http://localhost:8040/eureka
